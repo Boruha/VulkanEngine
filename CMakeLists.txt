@@ -6,6 +6,7 @@ project(${TARGET_NAME})
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 include(compiler_options)
 
+# TODO: Is possible to remove this?
 set(VULKAN_PATH "D:/Programacion/VulkanSDK/1.3.296.0")
 set(ENV{VULKAN_SDK} ${VULKAN_PATH}) # Black Magic (?)
 
@@ -22,6 +23,10 @@ add_executable(${TARGET_NAME})
 target_sources(${TARGET_NAME}
     PUBLIC
         ${CPP_FILES})
+
+target_include_directories(${TARGET_NAME}
+    PUBLIC
+        ${VULKAN_PATH}/Include)
 
 target_link_libraries(${TARGET_NAME}
     PUBLIC
